@@ -21,7 +21,6 @@ int main() {
     Nodo* listaContactos = NULL;
     int opcion;
 
-    // Cargar contactos desde archivo al iniciar
     cargarAgendaDesdeArchivo(&listaContactos);
 
     do {
@@ -35,7 +34,7 @@ int main() {
         printf("7. Guardar y salir\n");
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
-        getchar(); // Limpia el salto de línea después de scanf
+        getchar();
 
     } while (opcion != 7);
 
