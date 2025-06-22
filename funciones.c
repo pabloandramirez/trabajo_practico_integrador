@@ -50,7 +50,7 @@ void agregarContacto(Nodo** lista) {
     fgets(nuevo->contacto.nombre, MAX_NOMBRE, stdin);
     nuevo->contacto.nombre[strcspn(nuevo->contacto.nombre, "\n")] = '\0';
 
-    printf("TelÃ©fono: ");
+    printf("Telefono: ");
     fgets(nuevo->contacto.telefono, MAX_TELEFONO, stdin);
     nuevo->contacto.telefono[strcspn(nuevo->contacto.telefono, "\n")] = '\0';
 
@@ -92,4 +92,76 @@ void eliminarContacto(Nodo** lista) {
 
     free(actual);
     printf("Contacto eliminado.\n");
+}
+
+
+void modificarContacto(Nodo* lista) {
+    char nombre[MAX_NOMBRE];
+    printf("Nombre del contacto a modificar: ");
+    fgets(nombre, MAX_NOMBRE, stdin);
+    nombre[strcspn(nombre, "\n")] = '\0';
+
+    while (lista != NULL) {
+        if (strcmp(lista->contacto.nombre, nombre) == 0) {
+            printf("Nuevo telefono: ");
+            fgets(lista->contacto.telefono, MAX_TELEFONO, stdin);
+            lista->contacto.telefono[strcspn(lista->contacto.telefono, "\n")] = '\0';
+
+            printf("Nuevo email: ");
+            fgets(lista->contacto.email, MAX_EMAIL, stdin);
+            lista->contacto.email[strcspn(lista->contacto.email, "\n")] = '\0';
+
+            printf("Contacto modificado.\n");
+            return;
+        }
+        lista = lista->siguiente;
+    }
+
+    printf("Contacto no encontrado.\n");
+}
+
+void buscarContacto(Nodo* lista) {
+    char nombre[MAX_NOMBRE];
+    printf("Nombre del contacto a buscar: ");
+    fgets(nombre, MAX_NOMBRE, stdin);
+    nombre[strcspn(nombre, "\n")] = '\0';
+
+    while (lista != NULL) {
+        if (strcmp(lista->contacto.nombre, nombre) == 0) {
+            printf("Nombre: %s\n", lista->contacto.nombre);
+            printf("Teléfono: %s\n", lista->contacto.telefono);
+            printf("Email: %s\n", lista->contacto.email);
+            return;
+        }
+        lista = lista->siguiente;
+    }
+
+    printf("Contacto no encontrado.\n");
+}
+
+void ordenarContactosAlfabeticamente(Nodo** lista) {
+    if (*lista == NULL || (*lista)->siguiente == NULL)
+        return;
+
+    int cambiado;
+    do {
+        cambiado = 0;
+        Nodo* actual = *lista;
+        Nodo* anterior = NULL;
+        Nodo* siguiente = NULL;
+
+        while (actual->siguiente != NULL) {
+            siguiente = actual->siguiente;
+            if (strcmp(actual->contacto.nombre, siguiente->contacto.nombre) > 0) {
+                
+                Contacto temp = actual->contacto;
+                actual->contacto = siguiente->contacto;
+                siguiente->contacto = temp;
+                cambiado = 1;
+            }
+            actual = actual->siguiente;
+        }
+    } while (cambiado);
+
+    printf("Contactos ordenados alfabeticamente.\n");
 }
