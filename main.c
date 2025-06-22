@@ -1,21 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-
-#define MAX_NOMBRE 50
-#define MAX_TELEFONO 20
-#define MAX_EMAIL 50
-
-typedef struct {
-    char nombre[MAX_NOMBRE];
-    char telefono[MAX_TELEFONO];
-    char email[MAX_EMAIL];
-} Contacto;
-
-typedef struct Nodo {
-    Contacto contacto;
-    struct Nodo* siguiente;
-} Nodo;
+#include "funciones.h" 
 
 int main() {
     Nodo* listaContactos = NULL;
@@ -35,6 +20,34 @@ int main() {
         printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
         getchar();
+
+        switch(opcion) {
+            case 1:
+                agregarContacto(&listaContactos);
+                break;
+            case 2:
+                eliminarContacto(&listaContactos);
+                break;
+            case 3:
+                modificarContacto(listaContactos);
+                break;
+            case 4:
+                buscarContacto(listaContactos);
+                break;
+            case 5:
+                ordenarContactosAlfabeticamente(&listaContactos);
+                break;
+            case 6:
+                mostrarContactos(listaContactos);
+                break;
+            case 7:
+                guardarAgendaEnArchivo(listaContactos);
+                liberarMemoria(listaContactos);
+                printf("Agenda guardada. Saliendo...\n");
+                break;
+            default:
+                printf("Opción no valida. Intente nuevamente.\n");
+        }
 
     } while (opcion != 7);
 
