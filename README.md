@@ -54,3 +54,12 @@ Permite:
 ```bash
 gcc main.c funciones.c -o agenda
 ./agenda
+
+---
+
+## ⚠️ Observaciones
+
+- El programa funciona únicamente con caracteres en el alfabeto inglés (ASCII básico).  
+  Por lo tanto, **no se muestran correctamente letras con tilde** (á, é, í, ó, ú, ñ, etc.) en la consola.
+- Esto se debe a que muchas consolas en C no manejan correctamente codificaciones como UTF-8 por defecto.
+- Para evitar errores, se recomienda **no usar tildes ni eñes** en nombres o correos.

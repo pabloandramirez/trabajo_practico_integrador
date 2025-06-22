@@ -1,0 +1,10 @@
+andrea fernandez;1122334455;andrea@mail.com
+carlos benitez;2233445566;carlos@mail.com
+diego ortiz;3344556677;diego@mail.com
+florencia lopez;4455667788;florencia@mail.com
+gustavo peralta;5566778899;gustavo@mail.com
+ignacio torres;6677889900;ignacio@mail.com
+julieta morales;7788990011;julieta@mail.com
+mariano lopez;8899001122;mariano@mail.com
+natalia vega;9900112233;natalia@mail.com
+sabrina aguirre;1011121314;sabrina@mail.com

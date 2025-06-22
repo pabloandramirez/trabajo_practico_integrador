@@ -3,7 +3,6 @@
 #include <string.h>
 #include "funciones.h"
 
-
 void cargarAgendaDesdeArchivo(Nodo** lista) {
     FILE* archivo = fopen("agenda.txt", "r");
     if (!archivo) {
@@ -14,8 +13,17 @@ void cargarAgendaDesdeArchivo(Nodo** lista) {
     while (fscanf(archivo, "%49[^;];%19[^;];%49[^\n]\n", c.nombre, c.telefono, c.email) == 3) {
         Nodo* nuevo = (Nodo*)malloc(sizeof(Nodo));
         nuevo->contacto = c;
-        nuevo->siguiente = *lista;
-        *lista = nuevo;
+        nuevo->siguiente = NULL;
+
+        if (*lista == NULL) {
+            *lista = nuevo;
+        } else {
+            Nodo* temp = *lista;
+            while (temp->siguiente != NULL) {
+                temp = temp->siguiente;
+            }
+            temp->siguiente = nuevo;
+        }
     }
 
     fclose(archivo);
@@ -23,7 +31,10 @@ void cargarAgendaDesdeArchivo(Nodo** lista) {
 }
 
 
+
 void guardarAgendaEnArchivo(Nodo* lista) {
+    ordenarContactosAlfabeticamente(&lista);
+
     FILE* archivo = fopen("agenda.txt", "w");
     if (!archivo) {
         printf("Error al guardar el archivo.\n");
@@ -101,20 +112,25 @@ void modificarContacto(Nodo* lista) {
     fgets(nombre, MAX_NOMBRE, stdin);
     nombre[strcspn(nombre, "\n")] = '\0';
 
-    while (lista != NULL) {
-        if (strcmp(lista->contacto.nombre, nombre) == 0) {
+    Nodo* actual = lista;
+    while (actual != NULL) {
+        if (strcmp(actual->contacto.nombre, nombre) == 0) {
+            printf("Nuevo nombre: ");
+            fgets(actual->contacto.nombre, MAX_NOMBRE, stdin);
+            actual->contacto.nombre[strcspn(actual->contacto.nombre, "\n")] = '\0';
+
             printf("Nuevo telefono: ");
-            fgets(lista->contacto.telefono, MAX_TELEFONO, stdin);
-            lista->contacto.telefono[strcspn(lista->contacto.telefono, "\n")] = '\0';
+            fgets(actual->contacto.telefono, MAX_TELEFONO, stdin);
+            actual->contacto.telefono[strcspn(actual->contacto.telefono, "\n")] = '\0';
 
             printf("Nuevo email: ");
-            fgets(lista->contacto.email, MAX_EMAIL, stdin);
-            lista->contacto.email[strcspn(lista->contacto.email, "\n")] = '\0';
+            fgets(actual->contacto.email, MAX_EMAIL, stdin);
+            actual->contacto.email[strcspn(actual->contacto.email, "\n")] = '\0';
 
             printf("Contacto modificado.\n");
             return;
         }
-        lista = lista->siguiente;
+        actual = actual->siguiente;
     }
 
     printf("Contacto no encontrado.\n");
