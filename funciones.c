@@ -167,3 +167,30 @@ void ordenarContactosAlfabeticamente(Nodo** lista) {
 
     printf("Contactos ordenados alfabeticamente.\n");
 }
+
+
+void mostrarContactos(Nodo* lista) {
+    if (lista == NULL) {
+        printf("Agenda vacía.\n");
+        return;
+    }
+
+    printf("\n--- Lista de Contactos ---\n");
+    while (lista != NULL) {
+        printf("Nombre: %s\n", lista->contacto.nombre);
+        printf("Teléfono: %s\n", lista->contacto.telefono);
+        printf("Email: %s\n", lista->contacto.email);
+        printf("--------------------------\n");
+        lista = lista->siguiente;
+    }
+}
+
+
+void liberarMemoria(Nodo* lista) {
+    Nodo* actual;
+    while (lista != NULL) {
+        actual = lista;
+        lista = lista->siguiente;
+        free(actual);
+    }
+}
