@@ -23,5 +23,8 @@ void cargarAgendaDesdeArchivo(Nodo** lista);
 void guardarAgendaEnArchivo(Nodo* lista);
 void agregarContacto(Nodo** lista);
 void eliminarContacto(Nodo** lista);
+void modificarContacto(Nodo* lista);
+void buscarContacto(Nodo* lista);
+void ordenarContactosAlfabeticamente(Nodo** lista);
 
 #endif
