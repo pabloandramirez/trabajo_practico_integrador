@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-// Definición del struct Contacto
+
+#define MAX_NOMBRE 50
+#define MAX_TELEFONO 20
+#define MAX_EMAIL 50
+
 typedef struct {
-    char nombre[50];
-    char telefono[20];
-    char email[50];
+    char nombre[MAX_NOMBRE];
+    char telefono[MAX_TELEFONO];
+    char email[MAX_EMAIL];
 } Contacto;
 
-// Nodo para lista dinámica
 typedef struct Nodo {
     Contacto contacto;
     struct Nodo* siguiente;
 } Nodo;
-
 
 int main() {
     Nodo* listaContactos = NULL;
@@ -34,7 +35,8 @@ int main() {
         printf("7. Guardar y salir\n");
         printf("Seleccione una opción: ");
         scanf("%d", &opcion);
-        getchar(); // Limpia buffer del salto de línea
+        getchar(); // Limpia el salto de línea después de scanf
+
 
     } while (opcion != 7);
 

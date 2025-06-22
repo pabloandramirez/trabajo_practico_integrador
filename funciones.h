@@ -19,9 +19,9 @@ typedef struct Nodo {
 } Nodo;
 
 
-void cargarAgendaDesdeArchivo(Nodo lista);
+void cargarAgendaDesdeArchivo(Nodo** lista);
 void guardarAgendaEnArchivo(Nodo* lista);
-void agregarContacto(Nodo lista);
+void agregarContacto(Nodo** lista);
 void eliminarContacto(Nodo** lista);
 
 #endif
