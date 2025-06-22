@@ -30,13 +30,12 @@ int main() {
         printf("2. Eliminar contacto\n");
         printf("3. Modificar contacto\n");
         printf("4. Buscar contacto\n");
-        printf("5. Ordenar alfabéticamente\n");
+        printf("5. Ordenar alfabeticamente\n");
         printf("6. Mostrar todos los contactos\n");
         printf("7. Guardar y salir\n");
-        printf("Seleccione una opción: ");
+        printf("Seleccione una opcion: ");
         scanf("%d", &opcion);
         getchar(); // Limpia el salto de línea después de scanf
-
 
     } while (opcion != 7);
 
