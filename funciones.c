@@ -120,6 +120,7 @@ void modificarContacto(Nodo* lista) {
     printf("Contacto no encontrado.\n");
 }
 
+
 void buscarContacto(Nodo* lista) {
     char nombre[MAX_NOMBRE];
     printf("Nombre del contacto a buscar: ");
@@ -138,6 +139,7 @@ void buscarContacto(Nodo* lista) {
 
     printf("Contacto no encontrado.\n");
 }
+
 
 void ordenarContactosAlfabeticamente(Nodo** lista) {
     if (*lista == NULL || (*lista)->siguiente == NULL)
