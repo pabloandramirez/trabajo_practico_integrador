@@ -171,14 +171,14 @@ void ordenarContactosAlfabeticamente(Nodo** lista) {
 
 void mostrarContactos(Nodo* lista) {
     if (lista == NULL) {
-        printf("Agenda vacía.\n");
+        printf("Agenda vacia.\n");
         return;
     }
 
     printf("\n--- Lista de Contactos ---\n");
     while (lista != NULL) {
         printf("Nombre: %s\n", lista->contacto.nombre);
-        printf("Teléfono: %s\n", lista->contacto.telefono);
+        printf("Telefono: %s\n", lista->contacto.telefono);
         printf("Email: %s\n", lista->contacto.email);
         printf("--------------------------\n");
         lista = lista->siguiente;
