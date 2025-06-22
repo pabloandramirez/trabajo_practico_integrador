@@ -130,7 +130,7 @@ void buscarContacto(Nodo* lista) {
     while (lista != NULL) {
         if (strcmp(lista->contacto.nombre, nombre) == 0) {
             printf("Nombre: %s\n", lista->contacto.nombre);
-            printf("Teléfono: %s\n", lista->contacto.telefono);
+            printf("Telefono: %s\n", lista->contacto.telefono);
             printf("Email: %s\n", lista->contacto.email);
             return;
         }
