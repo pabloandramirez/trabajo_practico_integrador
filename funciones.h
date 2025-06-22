@@ -26,5 +26,7 @@ void eliminarContacto(Nodo** lista);
 void modificarContacto(Nodo* lista);
 void buscarContacto(Nodo* lista);
 void ordenarContactosAlfabeticamente(Nodo** lista);
+void mostrarContactos(Nodo* lista);
+void liberarMemoria(Nodo* lista);
 
 #endif
