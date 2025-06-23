@@ -46,7 +46,7 @@ int main() {
                 printf("Agenda guardada. Saliendo...\n");
                 break;
             default:
-                printf("Opción no valida. Intente nuevamente.\n");
+                printf("Opcion no valida. Intente nuevamente.\n");
         }
 
     } while (opcion != 7);
