@@ -63,7 +63,7 @@ gcc main.c funciones.c -o agenda
 - Esto se debe a que muchas consolas en C no manejan correctamente codificaciones como UTF-8 por defecto.
 - Para evitar errores, se recomienda **no usar tildes ni eñes** en nombres o correos.
 
-⚠️ Aclaraciones del trabajo
+## ⚠️ Aclaraciones del trabajo
 - Durante el desarrollo del proyecto, los tres integrantes trabajamos de forma colaborativa en tiempo real mediante Discord, compartiendo pantalla y código simultáneamente. Esto permitió una revisión y construcción total del programa, pero como resultado, la mayoría de los commits fueron realizados desde un solo usuario.
 
 - Por este motivo, los commits en el repositorio no reflejan de manera equitativa la participación real de todos los miembros. La distribución de tareas, decisiones de lógica y desarrollo del código fue compartida y pensada en conjunto.
