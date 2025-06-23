@@ -56,6 +56,7 @@ gcc main.c funciones.c -o agenda
 ./agenda
 
 ---
+```
 
 ## ⚠️ Observaciones
 
